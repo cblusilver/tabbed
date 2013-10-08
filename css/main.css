@@ -34,8 +34,8 @@ body { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 12px
 p { font-size: em; line-height: 1.5em; margin: 0 0 1.5em 0 ; }
 a:hover { cursor: pointer; }
 
-.container { margin: auto; position: absolute; top: 10%; bottom: 11%; left: 10%; right: 10%; padding-top: 45px; }
-.tab_container { border: 3px solid #e18728; width: 100%; min-height: 100%; background-color: #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; }
+.container { margin: auto; position: absolute; top: 10%; bottom: 11%; left: 10%; right: 10%; padding-top: 45px; min-width: 285px; }
+.tab_container { border: 3px solid #e18728; width: 100%; min-height: 100%; background-color: #fff; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; margin-bottom: 110px; }
 .tab_set { margin: -35px 0 0 5px; padding: 0; }
 .tab_set li { min-width: 100px; float: left; display: inline; text-align: center; border: 3px solid #e18728; border-bottom: none; margin: 0 1px; background-color: #e18728; -webkit-border-radius: 3px 3px 0 0; -moz-border-radius: 3px 3px 0 0; border-radius: 3px 3px 0 0; -webkit-background-clip: padding-box; -moz-background-clip: padding; background-clip: padding-box; }
 .tab_set li:first-child { margin-left: 0; }
@@ -47,7 +47,7 @@ a:hover { cursor: pointer; }
 .tab_select_daleks li:last-child { margin-right: 0; }
 .tab_select_zombies li:nth-child(1) a,
 .tab_select_pirates li:nth-child(2) a,
-.tab_select_daleks li:nth-child(3) a { line-height: 40px; color: #444; }
+.tab_select_daleks li:nth-child(3) a { line-height: 40px; color: #444; padding-top: 12px; padding-bottom: 12px; }
 .tab_select_zombies div.content:nth-of-type(1),
 .tab_select_pirates div.content:nth-of-type(2),
 .tab_select_daleks div.content:nth-of-type(3) { display: block; }
@@ -57,10 +57,12 @@ a:hover { cursor: pointer; }
 
 @media only screen and (max-width: 1440px) {
 	body { background-image: url(../img/bg_1440.jpg); }
+	.tab_container { margin-bottom: 80px; }
 }
 
 @media only screen and (max-width: 1024px) {
 	body { background-image: url(../img/bg_1024.jpg); }
+	.tab_container { margin-bottom: 60px; }
 	.content img { width: 250px; height: 164px; background-image: url(../img/sprite_1024.jpg); }
 	.content_pirates img { height: 308px; background-position: 0 -164px; }
 	.content_daleks img { height: 322px; background-position: 0 -472px; } 
@@ -76,7 +78,5 @@ a:hover { cursor: pointer; }
 
 @media only screen and (max-width: 480px) {
 	body { background-image: url(../img/bg_480.jpg); }
-	.tab_set li { min-width: inherit; }
-	.tab_set li a { padding-left: 10px; padding-right: 10px; }
 }
 

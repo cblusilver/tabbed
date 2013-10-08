@@ -22,15 +22,62 @@ var addEvent = function () {
 	};
 }();
 
+var onready = function(handler) {
+    if (document.readyState === "complete") {
+				return handler();
+		}
+    if (window.addEventListener) {
+				window.addEventListener("DOMContentLoaded",handler,false);
+		}
+    else if (window.attachEvent && window == window.top) { 
+				if (_readyQueue.push(handler) == 1) {
+						_readyIEtop();
+				}
+		}
+    else if (window.attachEvent) { 
+				window.attachEvent("onload",handler);
+		}
+};
+
+var _readyQueue = [];
+var _readyIEtop = function() {
+    try {
+				document.documentElement.doScroll("left");
+				var fn; 
+				while ((fn=_readyQueue.shift()) != undefined) {
+						fn();
+				}
+    }
+    catch(err) { 
+				setTimeout(_readyIEtop,50); 
+		}
+};
+
 var getAttribute = function(element, attributeName) {
   return (typeof element.attributes[attributeName] != 'undefined') ? element.attributes[attributeName].value : false;
 }
 
-var historyIndex = 100;
-var updateState = function(newState) {
-		window.history.pushState({ id: historyIndex }, newState, newState);
-		historyIndex++;
+var updateState = function(url) { 
+		window.history.pushState({ tab: url }, url, url);
 };
+
+var updateTab = function(value) {	
+		value = value || "#zombies";
+		var tc = document.getElementsByClassName('tab_container')[0];	
+		
+		var className = tc.className;
+		var classArr = className.split(' ');
+		var newNames = [];
+		
+		for (var i=0; i<classArr.length; i++) {
+			if (classArr[i].indexOf('tab_select_') == -1) {
+				newNames.push(classArr[i]);
+			}
+		}
+		
+		newNames.push('tab_select_' + value.substring(1));
+		tc.className = newNames.join(" ");		
+}
 
 var switchTab = function(e) {
 		if (e && e.preventDefault) {
@@ -40,31 +87,27 @@ var switchTab = function(e) {
 				window.eventReturnValue = false;
 		};
 
-		var value = getAttribute(this, 'href');
-		console.log(value);
-		
-		if (value) {
-//			  updateState(value);
-				
-				var tc = document.getElementsByClassName('tab_container')[0];	
-				
-				var className = tc.className;
-				var classArr = className.split(' ');
-				var newNames = [];
-				
-				for (var i=0; i<classArr.length; i++) {
-					if (classArr[i].indexOf('tab_select_') == -1) {
-						newNames.push(classArr[i]);
-					}
-				}
-				
-				newNames.push('tab_select_' + value.substring(1));
-				tc.className = newNames.join(" ");		
-				console.log(tc.className);
-		}
-}
+		var url = getAttribute(this, 'href');
+		updateState(url);
+		updateTab(url);		
+};
 
-var tabs = document.getElementsByClassName('tab');
-for (var i=0; i<tabs.length; i++) {
-		addEvent(tabs[i], "click", switchTab);
-}
+var previousState = function() {
+		var url = (window.location.hash) ? window.location.hash : null;
+		updateTab(url);
+};
+
+onready(function() {
+		var tabs = document.getElementsByClassName('tab');
+		for (var i=0; i<tabs.length; i++) {
+				addEvent(tabs[i], "click", switchTab);
+		}
+		
+		addEvent(window, 'popstate', previousState);
+		
+		var url = (window.location.hash) ? window.location.hash : null;
+		window.history.replaceState({ tab: url }, url, url);
+		if (url) {
+				updateTab(url);
+		}
+});
