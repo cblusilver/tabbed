@@ -56,8 +56,8 @@ a:hover { cursor: pointer; }
 .content_daleks img { height: 451px; background-position: 0 -660px; } 
 
 @media only screen and (max-width: 1440px) {
-	body { background-image: url(../img/bg_1440.jpg); }
-	.tab_container { margin-bottom: 80px; }
+  body { background-image: url(../img/bg_1440.jpg); }
+  .tab_container { margin-bottom: 80px; }
 }
 
 @media only screen and (max-width: 1024px) {
