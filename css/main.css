@@ -14,12 +14,12 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section { display: block; }
 body { line-height: 1; }
 ol, ul { list-style: none; }
@@ -51,9 +51,9 @@ a:hover { cursor: pointer; }
 .tab_select_zombies div.content:nth-of-type(1),
 .tab_select_pirates div.content:nth-of-type(2),
 .tab_select_daleks div.content:nth-of-type(3) { display: block; }
-.content img { width: 350px; background: transparent url(../img/sprite.jpg) no-repeat 0 0; float: left; color: transparent; margin: 0 15px 15px 0; -moz-box-shadow: 5px 5px 3px #ccc; -webkit-box-shadow: 5px 5px 3px #ccc; box-shadow: 5px 5px 3px #ccc; border: 1px solid #ccc;  height: 230px; } 
-.content_pirates img { height: 430px; background-position: 0 -231px; float: right; margin: 0 0 15px 15px; } 
-.content_daleks img { height: 451px; background-position: 0 -660px; } 
+.content img { width: 350px; background: transparent url(../img/sprite.jpg) no-repeat 0 0; float: left; color: transparent; margin: 0 15px 15px 0; -moz-box-shadow: 5px 5px 3px #ccc; -webkit-box-shadow: 5px 5px 3px #ccc; box-shadow: 5px 5px 3px #ccc; border: 1px solid #ccc;  height: 230px; }
+.content_pirates img { height: 430px; background-position: 0 -231px; float: right; margin: 0 0 15px 15px; }
+.content_daleks img { height: 451px; background-position: 0 -660px; }
 
 @media only screen and (max-width: 1440px) {
   body { background-image: url(../img/bg_1440.jpg); }
@@ -61,22 +61,22 @@ a:hover { cursor: pointer; }
 }
 
 @media only screen and (max-width: 1024px) {
-	body { background-image: url(../img/bg_1024.jpg); }
-	.tab_container { margin-bottom: 60px; }
-	.content img { width: 250px; height: 164px; background-image: url(../img/sprite_1024.jpg); }
-	.content_pirates img { height: 308px; background-position: 0 -164px; }
-	.content_daleks img { height: 322px; background-position: 0 -472px; } 
+  body { background-image: url(../img/bg_1024.jpg); }
+  .tab_container { margin-bottom: 60px; }
+  .content img { width: 250px; height: 164px; background-image: url(../img/sprite_1024.jpg); }
+  .content_pirates img { height: 308px; background-position: 0 -164px; }
+  .content_daleks img { height: 322px; background-position: 0 -472px; }
 }
 
 @media only screen and (max-width: 640px) {
-	body { background-image: url(../img/bg_640.jpg); }
-	.container { top: 2%; bottom: 3%; left: 5%; right: 5%; }
-	.tab_container { margin-bottom: 20px; }
-	.tab_set li { min-width: inherit; }
-	.tab_set li a { padding-left: 10px; padding-right: 10px; }
+  body { background-image: url(../img/bg_640.jpg); }
+  .container { top: 2%; bottom: 3%; left: 5%; right: 5%; }
+  .tab_container { margin-bottom: 20px; }
+  .tab_set li { min-width: inherit; }
+  .tab_set li a { padding-left: 10px; padding-right: 10px; }
 }
 
 @media only screen and (max-width: 480px) {
-	body { background-image: url(../img/bg_480.jpg); }
+  body { background-image: url(../img/bg_480.jpg); }
 }
 
