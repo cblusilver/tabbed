@@ -100,7 +100,7 @@ var previousState = function() {
 onready(function() {
   var tabs = document.getElementsByClassName('tab');
   for (var i=0; i<tabs.length; i++) {
-  addEvent(tabs[i], "click", switchTab);
+    addEvent(tabs[i], "click", switchTab);
   }
 
   addEvent(window, 'popstate', previousState);
@@ -108,6 +108,6 @@ onready(function() {
   var url = (window.location.hash) ? window.location.hash : null;
   window.history.replaceState({ tab: url }, url, url);
   if (url) {
-  updateTab(url);
+    updateTab(url);
   }
 });
